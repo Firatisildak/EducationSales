@@ -16,7 +16,7 @@ function logoutAdmin(){
             echo "Oturumunuz sonlandı.";
             session_unset();
             session_destroy();
-            goAndComeBack("yonetici_Giris.php",3, 1);
+            goAndComeBack("admin_Login.php",3, 1);
             unset($db);
             exit;
         }
@@ -24,11 +24,28 @@ function logoutAdmin(){
         $_SESSION['Active_Time'] = time();
     }
 }
+function abouttext($maxLength)
+{
+  include("inc/database_Connection.php");
+  $menuItems3 = array();
+  $result3 = $db->query("SELECT aboutText FROM about");
+  if ($result3->rowCount() > 0) {
+    while ($row = $result3->fetch(PDO::FETCH_ASSOC)) {
+      $truncatedText = substr($row["aboutText"] , 0, $maxLength); // Kırpılmış metin
+      $menuItem3 = array("textAbout" => $truncatedText);
+      $menuItems3[] = $menuItem3;
+    }
+  } else {
+    echo "Veritabanında hiç veri bulunamadı.";
+  }
+  foreach ($menuItems3 as $item) {
+    echo '<p>' . $item["textAbout"] . '</p>';
+  }
+}
 //buton ile çıkışı sağlıyor.
 if(isset($_POST['cikis'])){
     session_unset();//işlevi, mevcut oturumun tüm değişkenlerini temizler. Oturumda tanımlanan tüm değişkenlerin değerleri silinir, ancak oturum kendisi hala etkin kalır.
     session_destroy();//Oturum dosyası veya veritabanı girdileri silinir ve oturum ile ilişkili çerez 
-    goAndComeBack("yonetici_Giris.php", 0, 1);
+    goAndComeBack("admin_Login.php", 0, 1);
     unset($db);// Veritabanı bağlantısını kapatma
 }
-?>

@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<?php
-		 include("MyClass.php");
-		 include("functions/routing.php");
-		 include("inc/veritabaniBaglan.php");//bu kod bizim veritabaı ile bağlantımızı sağlar.
-		 $userProcess=new sqlProcess();
-		 if(isset($_POST['kayit'])){
-			 //alttaki kod parçası bizim kullanıcımızın kayıt işlemi için kullanılır.
-			 $username=$_POST['username'];
-			 $mail=$_POST["mail"];
-			 $password=$_POST['password'];
-			 $params = [ $username,$mail, $password];
-			 $params2 = [$username];
-			 $userProcess->sqlsorgu('kayit', 'INSERT INTO login (name, mail, password) VALUES (?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM login WHERE name = ?', $params2);
-		 }
-		 $userProcess->loginControl('giris', 'SELECT * FROM login WHERE name=? && password=?', 'name', 'pass', 'user');
+	include("MyClass.php");
+	include("functions/routing.php");
+	include("inc/database_Connection.php"); //bu kod bizim veritabaı ile bağlantımızı sağlar.
+	$userProcess = new sqlProcess();
+	if (isset($_POST['kayit'])) {
+		//alttaki kod parçası bizim kullanıcımızın kayıt işlemi için kullanılır.
+		$username = $_POST['username'];
+		$mail = $_POST["mail"];
+		$password = $_POST['password'];
+		$params = [$username, $mail, $password];
+		$params2 = [$username];
+		$userProcess->sqlsorgu('kayit', 'INSERT INTO login (name, mail, password) VALUES (?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM login WHERE name = ?', $params2);
+	}
+	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE name=? && password=?', 'name', 'pass', 'user');
 	?>
 	<link rel="stylesheet" href="./css/login_style.css">
 	<script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
 </head>
+
 <body>
-	<div class="main"> 
+	<div class="main">
 		<div class="form-box">
 			<div class="button-box">
 				<div id="btn"></div><!--bu divi kullanmamın sebebi butonlar ile sayfalar arası geçişi sağlamak.-->
@@ -53,20 +55,22 @@
 		</div>
 	</div>
 	<script>
-		var x=document.getElementById("Login");
-		var y=document.getElementById("Register");
-		var z=document.getElementById("btn");
+		var x = document.getElementById("Login");
+		var y = document.getElementById("Register");
+		var z = document.getElementById("btn");
 
-		function register(){
-			x.style.left="-400px";
-			y.style.left="50px";
-			z.style.left="110px";
+		function register() {
+			x.style.left = "-400px";
+			y.style.left = "50px";
+			z.style.left = "110px";
 		}
-		function login(){
-			x.style.left="50px";
-			y.style.left="450px";
-			z.style.left="0px";
+
+		function login() {
+			x.style.left = "50px";
+			y.style.left = "450px";
+			z.style.left = "0px";
 		}
 	</script>
 </body>
+
 </html>
