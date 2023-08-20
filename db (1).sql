@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 26 Tem 2023, 14:39:41
+-- Üretim Zamanı: 08 Ağu 2023, 10:56:35
 -- Sunucu sürümü: 10.4.28-MariaDB
 -- PHP Sürümü: 8.2.4
 
@@ -20,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `about`
+--
+
+CREATE TABLE `about` (
+  `aboutID` int(11) NOT NULL,
+  `aboutText` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Tablo döküm verisi `about`
+--
+
+INSERT INTO `about` (`aboutID`, `aboutText`) VALUES
+(0, '2023 yılında açılan yeni bir yazılım eğitim sitesi, teknolojinin hızla geliştiği ve dijital dünyanın önem kazandığı bu çağda oldukça önemli bir girişim olarak karşınıza çıkıyoruz. Bu sebeple size eğitim yanı sıra gelecek kurma fırsatı veriyoruz. Dünyanın yenilikçi yapısına ayak uydurmanızı sağlıyoruz. Bütün üyelerimize en son teknoloji ve gelişmeler ile güncel tuttuğumuz gibi geçmişdeki önemli teknolojiler ile de sizleri yazılım dünyasının aranan yüzleri haline getirmeyi planlıyoruz.');
 
 -- --------------------------------------------------------
 
@@ -59,13 +77,13 @@ CREATE TABLE `cardlesson` (
 --
 
 INSERT INTO `cardlesson` (`cardLessonID`, `cardLessonImg`, `cardLessonTitle`, `cardLessonWrite`) VALUES
-(1, 'r1.jpg', 'HTML5 ve CSS3 Eğitimleri', 'sıfırdan ileri düzey eğitim serisi.'),
-(2, 'r2.jpg', 'HTML5 ve CSS3 Eğitimleri', 'sıfırdan ileri düzey eğitim serisi.'),
-(3, 'r3.jpg', 'HTML5 ve CSS3 Eğitimleri', 'sıfırdan ileri düzey eğitim serisi.'),
-(4, 'r4.jpg', 'HTML5 ve CSS3 Eğitimleri', 'sıfırdan ileri düzey eğitim serisi.'),
-(5, 'r5.jpg', 'HTML5 ve CSS3 Eğitimleri', 'sıfırdan ileri düzey eğitim serisi.'),
-(6, 'r6.jpg', 'HTML5 ve CSS3 Eğitimleri', 'sıfırdan ileri düzey eğitim serisi.'),
-(7, 'r7.jpg', 'HTML5 ve CSS3 Eğitimleri', 'sıfırdan ileri düzey eğitim serisi.');
+(1, 'r1.jpg', 'HTML5 ve CSS3 Eğitimleri', 'sıfırdan ileri düzey eğitim serisi. Bu seri daha özgün bir insan olmanızı sağlarken yazılıma adım atmanızı sağlar.'),
+(2, 'r2.jpg', 'java', 'Adım Adım java öğrenmeye başlayacağınız örnekler ve projeler ile sizi iyi bir yazılımcı yaparken özelliklerinizi de arttırır.'),
+(3, 'r3.jpg', 'C# ve .Net', 'Güncel teknolojiler ve gelişim dünyasına adım atmanızı sağlayan güncel bir eğitim video serisi içerir.'),
+(4, 'r4.jpg', 'javaScript ve React', 'ileri düzey web tasarım bilgileri içeren bu kursu izleyebilmek için iyi bir tabanınızın olması öncelikli bir koşuldur.'),
+(5, 'r5.jpg', 'Mysql', 'Veritabanı işlemleri ve optimizasyonu nasıl gerçekleştirilir gibi konular içerir. Verimli içerikler paylaşılır.'),
+(6, 'r6.jpg', 'Temiz kod yazma', 'Bir yazılımcının yapması gereken her türlü  yapının düzenlenmesi ve okunaklı kod yazmanın püf noktaları.'),
+(7, 'r7.jpg', 'Adım Adım Frontend', 'Bir tasarımcını nerden ve nasıl başlayacağını antaırken aynı zamanda nasıl özgün tasarımlar çıkarabiliriz bunun yollarını öğretiyor.  ');
 
 -- --------------------------------------------------------
 
@@ -91,6 +109,41 @@ INSERT INTO `educator_table` (`educatorId`, `nameSurname`, `imgLink`, `aboutWrit
 (1, 'Sibel Çetin', 'ekip2.jpg', 'Ege Üniversitesi Yazılım mühendisi ve yan dal donanım uzmanı.', 'https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/', 'https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/', 'https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/'),
 (2, 'Talha Karaca', 'ekip1.jpg', 'Ege Üniversitesi Yazılım mühendisi ve yan dal donanım uzmanı.', 'https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/', 'https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/', 'https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/'),
 (3, 'İpek Camcı', 'ekip3.jpg', 'Ege Üniversitesi Yazılım mühendisi ve yan dal donanım uzmanı.', 'https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/', 'https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/', 'https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `footer`
+--
+
+CREATE TABLE `footer` (
+  `footerID` int(11) NOT NULL,
+  `footerText` varchar(200) NOT NULL,
+  `footerIcon` varchar(200) NOT NULL,
+  `footerAbout` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `footertext`
+--
+
+CREATE TABLE `footertext` (
+  `footerTextID` int(11) NOT NULL,
+  `footerIcon` varchar(250) NOT NULL,
+  `footerText` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Tablo döküm verisi `footertext`
+--
+
+INSERT INTO `footertext` (`footerTextID`, `footerIcon`, `footerText`) VALUES
+(1, 'fa-solid fa-house-chimney fa-xl', 'Eşref Paşa Mah. Celal Caddesi Çiçek Apatman.'),
+(2, 'fa-sharp fa-solid fa-phone-volume fa-xl', '05516483813'),
+(3, 'fa-solid fa-envelope fa-xl', 'firatisildak1@gmail.com'),
+(4, 'fa-sharp fa-solid fa-clock fa-xl', 'Çalışma Saatleri: Pazartesi-Cuma(10:00-18:00)');
 
 -- --------------------------------------------------------
 
@@ -139,7 +192,7 @@ CREATE TABLE `menutable` (
 INSERT INTO `menutable` (`id`, `menuName`, `menuUrl`, `menuIcon`, `siralama`) VALUES
 (1, 'Anasayfa', 'index.php', 'class=\"fa-solid fa-house icon\"', 1),
 (2, 'Hakkımızda', 'index.php#aboutUs', 'class=\"fa-solid fa-info icon\"', 3),
-(3, 'Eğitimler', 'egitimler.php', 'class=\"fa-solid fa-graduation-cap icon\"', 2),
+(3, 'Eğitimler', 'education.php', 'class=\"fa-solid fa-graduation-cap icon\"', 2),
 (5, 'İletişim', 'index.php#opaqueRow', 'class=\"fa-solid fa-map-pin icon\"', 5),
 (6, 'Eğitmenler', 'index.php#educator', 'class=\"fa-solid fa-people-group icon\"', 4),
 (18, 'Giriş&Kayıt', 'login_index.php', 'class=\"fa-solid fa-right-to-bracket icon\"', 6),
@@ -168,6 +221,18 @@ ALTER TABLE `educator_table`
   ADD PRIMARY KEY (`educatorId`);
 
 --
+-- Tablo için indeksler `footer`
+--
+ALTER TABLE `footer`
+  ADD PRIMARY KEY (`footerID`);
+
+--
+-- Tablo için indeksler `footertext`
+--
+ALTER TABLE `footertext`
+  ADD PRIMARY KEY (`footerTextID`);
+
+--
 -- Tablo için indeksler `login`
 --
 ALTER TABLE `login`
@@ -193,13 +258,25 @@ ALTER TABLE `adminlogin`
 -- Tablo için AUTO_INCREMENT değeri `cardlesson`
 --
 ALTER TABLE `cardlesson`
-  MODIFY `cardLessonID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cardLessonID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `educator_table`
 --
 ALTER TABLE `educator_table`
   MODIFY `educatorId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `footer`
+--
+ALTER TABLE `footer`
+  MODIFY `footerID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `footertext`
+--
+ALTER TABLE `footertext`
+  MODIFY `footerTextID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `login`
@@ -211,7 +288,7 @@ ALTER TABLE `login`
 -- Tablo için AUTO_INCREMENT değeri `menutable`
 --
 ALTER TABLE `menutable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

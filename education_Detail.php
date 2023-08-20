@@ -221,6 +221,7 @@ include("inc/head.php");
   </div>
 </div>
 <?php
+include("functions/routing.php");
 include("inc/footer.php");
 ?>
 </body>
