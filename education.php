@@ -1,6 +1,5 @@
 <?php
 include("inc/head.php");
-include("inc/database_Connection.php");
 include("functions/routing.php");
 ?>
 <section id="education">

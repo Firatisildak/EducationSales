@@ -1,14 +1,12 @@
 <div class="upside">
   <?php
   include("inc/head.php");
-  include("inc/database_Connection.php");
   include("functions/routing.php");
   ?>
   <div class="container">
     <div class="row">
       <div class="home-content col-md-4" id="main_Contant">
         <span class="multiple-text text-white"></span>
-        <!--alt satır bir çizgi oluşturup sola kaydırıyor-->
       </div>
     </div>
   </div>
@@ -32,7 +30,7 @@
       <?php
       $menuItems2 = array();
       //Alt'daki kod parçası bizim kayıtlı derslerimizi getiriyor ve bu kodları bir foreach yapısı ile derslerimizi kayıt ilgili koda getiriyor.
-      $result2 = $db->query("SELECT cardLessonImg, cardLessonTitle, cardLessonWrite FROM cardlesson");
+      $result2 = $db->query("SELECT * FROM cardlesson");
       if ($result2->rowCount() > 0) {
         while ($row = $result2->fetch(PDO::FETCH_ASSOC)) { //fetch(PDO::FETCH_ASSOC) yöntemi, sonuç kümesinden bir satırı alır ve bu satırı bir dizi olarak döndürür.
           $menuItem2 = array("lessonimg" => $row["cardLessonImg"], "title" => $row["cardLessonTitle"], "write" => $row["cardLessonWrite"]); //Döngü gövdesi kısmını özelleştirebilirsiniz. Bu bölümde, $row dizisinin herhangi bir özelliğini kullanabilirsiniz. Örneğin, $row['column_name'] şeklinde bir sütun adını kullanarak belirli bir sütundaki verilere erişebilirsiniz.
@@ -61,7 +59,7 @@
         <?php
         $menuItems = array();
         //Alt'daki kod parçası bizim menüdeki kayıtlı verilerimizi getiriyor ve bu kodları bir foreach yapısı ile menülerin kayıt olduğu nav bar kısmındaki ilgili koda getiriyor.
-        $result = $db->query("SELECT nameSurname, imgLink, aboutWrite, faceLink, linkedinLink, githubLink FROM educator_table");
+        $result = $db->query("SELECT * FROM educator_table");
         if ($result->rowCount() > 0) {
           while ($row = $result->fetch(PDO::FETCH_ASSOC)) { //fetch(PDO::FETCH_ASSOC) yöntemi, sonuç kümesinden bir satırı alır ve bu satırı bir dizi olarak döndürür.
             $menuItem = array("img" => $row["imgLink"], "name" => $row["nameSurname"], "text" => $row["aboutWrite"], "facebook" => $row["faceLink"], "linkedin" => $row["linkedinLink"], "github" => $row["githubLink"]); //Döngü gövdesi kısmını özelleştirebilirsiniz. Bu bölümde, $row dizisinin herhangi bir özelliğini kullanabilirsiniz. Örneğin, $row['column_name'] şeklinde bir sütun adını kullanarak belirli bir sütundaki verilere erişebilirsiniz.

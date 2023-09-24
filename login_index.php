@@ -20,7 +20,7 @@
 		$params2 = [$username];
 		$userProcess->sqlsorgu('kayit', 'INSERT INTO login (name, mail, password) VALUES (?, ?, ?)', $params, 1, 'SELECT COUNT(*) FROM login WHERE name = ?', $params2);
 	}
-	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE name=? && password=?', 'name', 'pass', 'user');
+	$userProcess->loginControl('giris', 'SELECT * FROM login WHERE name=? && password=?', 'name', 'pass', 'user');//giris=kayıt butonun ismi.
 	?>
 	<link rel="stylesheet" href="./css/login_style.css">
 	<script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>

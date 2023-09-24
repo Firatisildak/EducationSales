@@ -1,5 +1,6 @@
 <?php
 include("inc/head.php");
+include("functions/routing.php");
 ?>
 <div class="container">
   <div class="row" id="black_Row">
@@ -221,7 +222,6 @@ include("inc/head.php");
   </div>
 </div>
 <?php
-include("functions/routing.php");
 include("inc/footer.php");
 ?>
 </body>

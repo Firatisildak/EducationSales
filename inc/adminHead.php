@@ -9,51 +9,28 @@
   <div class="offcanvas-body  text-center">
     <div class="card card-body">
       <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h3 class="accordion-header mt-2 mb-2">
-            <a href="admin_MenuProcess.php"><i class="fa-solid fa-pen fa-sm"></i>Menü İşlemleri</a>
-          </h3>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header mt-2 mb-2">
-            <a href="admin_EducatorInsert.php"><i class="fa-solid fa-pen fa-sm"></i>Eğitmen İşlemleri</a>
-          </h3>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header mt-2 mb-2">
-            <a href="admin_educationProcess.php"><i class="fa-solid fa-pen fa-sm"></i>Ders İşlemleri</a>
-          </h3>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header mt-2 mb-2">
-            <a href="admin_EducatorInsert.php"><i class="fa-solid fa-pen fa-sm"></i>Örnek1 İşlemleri</a>
-          </h3>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header mt-2 mb-2">
-            <a href="admin_EducatorInsert.php"><i class="fa-solid fa-pen fa-sm"></i>Örnek2 İşlemleri</a>
-          </h3>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header mt-2 mb-2">
-            <a href="admin_EducatorInsert.php"><i class="fa-solid fa-pen fa-sm"></i>Örnek3 İşlemleri</a>
-          </h3>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header mt-2 mb-2">
-            <a href="admin_EducatorInsert.php"><i class="fa-solid fa-pen fa-sm"></i>Örnek4 İşlemleri</a>
-          </h3>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header mt-2 mb-2">
-            <a href="admin_EducatorInsert.php"><i class="fa-solid fa-pen fa-sm"></i>Örnek5 İşlemleri</a>
-          </h3>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header mt-2 mb-2">
-            <a href="admin_EducatorInsert.php"><i class="fa-solid fa-pen fa-sm"></i>Örnek6 İşlemleri</a>
-          </h3>
-        </div>
+        <?php
+        $menu_array1 = array(
+          array("admin_MenuProcess", "Menü İşlemleri"),
+          array("admin_EducatorInsert", "Eğitmen İşlemleri"),
+          array("admin_educationProcess", "Ders İşlemleri"),
+          array("admin_EducatorInsert", "Hakkımızda İşlemler"),
+          array("admin_EducatorInsert", "Örnek2 İşlemleri"),
+          array("admin_EducatorInsert", "Örnek3 İşlemleri")
+        );
+
+        foreach ($menu_array1 as $array1) {
+          $link = $array1[0] . '.php'; // İlk öğe yönlendirme veya işlem adını içerir
+          $menuName = $array1[1]; // İkinci öğe menü adını içerir
+
+          echo '<div class="accordion-item">';
+          echo '<h3 class="accordion-header mt-2 mb-2">';
+          echo '<a href="' . $link . '"><i class="fa-solid fa-pen fa-sm"></i>' . $menuName . '</a>';
+          echo '</h3>';
+          echo '</div>';
+        }
+
+        ?>
       </div>
     </div>
     <form class="input-group" method="post" action="admin_MenuProcess.php">

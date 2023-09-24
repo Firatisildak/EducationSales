@@ -1,5 +1,5 @@
 <?php
-  include("inc/database_Connection.php");
+include("inc/database_Connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,13 +18,13 @@
 
   switch ($page) {
     case 'index.php':
-      $cssFile = './css/style.css'; //"./css/". bunu echodan sonra yazabilirsin. kodun kısalmış olur.
+      $cssFile = 'style';
       break;
     case 'education_Detail.php':
-      $cssFile = './css/educationDetailStyle.css';
+      $cssFile = 'educationDetailStyle';
       break;
     case 'education.php':
-      $cssFile = './css/educationStyle.css';
+      $cssFile = 'educationStyle';
       break;
     default:
       echo "Tanımlanamayan bir sayfadasınız yönlendiriliyorsunuz.";
@@ -32,7 +32,7 @@
       break;
   }
   ?>
-  <link rel="stylesheet" href="<?php echo $cssFile; ?>"><!--bu kodda üstteki php kodunun devamı.-->
+  <link rel="stylesheet" href="./css/<?php echo $cssFile; ?>.css"><!--bu kodda üstteki php kodunun devamı.-->
   <!--alt satır font awesome ile bağlantıyı sağlıyor-->
   <script src="https://kit.fontawesome.com/0761d8fd00.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
