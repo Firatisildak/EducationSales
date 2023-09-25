@@ -63,6 +63,7 @@ class sqlProcess
         if (isset($_POST[$requestQuery])) {
             global $db, $params, $kayitSayisi;
             if ($choos != 0) {
+                //alttaki 3 satır ile verilen params2 ile verilen verinin kaçtane olduğunu sorgu ile aratıyor.
                 $sorgu = $db->prepare($query2);
                 $guncelle = $sorgu->execute(($params2));
                 $kayitSayisi = $sorgu->fetchColumn();

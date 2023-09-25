@@ -14,7 +14,7 @@
           array("admin_MenuProcess", "Menü İşlemleri"),
           array("admin_EducatorInsert", "Eğitmen İşlemleri"),
           array("admin_educationProcess", "Ders İşlemleri"),
-          array("admin_EducatorInsert", "Hakkımızda İşlemler"),
+          array("admin_AboutProcess", "Hakkımızda İşlemler"),
           array("admin_EducatorInsert", "Örnek2 İşlemleri"),
           array("admin_EducatorInsert", "Örnek3 İşlemleri")
         );

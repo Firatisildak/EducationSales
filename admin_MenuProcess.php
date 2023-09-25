@@ -16,6 +16,7 @@
     include("MyClass.php");
     //Alt satırdaki kod parçası bizim adminimizin girişini kontrol etmmemizi sağlıyor.
     $admin = new sqlProcess();
+    $admin->__construct();
     $admin->loginControl('girisAdmin', 'SELECT * FROM adminlogin WHERE name=? AND password=?', 'name', 'pass', 'admin');//girisAdmin=login sayfasındaki buton ismi.
 
     if ($_SESSION["LoggedIn"] == true) {
