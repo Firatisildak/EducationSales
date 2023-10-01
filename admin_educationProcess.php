@@ -102,7 +102,7 @@
                                             document.getElementById('form').submit();
                                         });
                                     </script>
-                                    <input type="text" name="education_write" class="input-field inputOval mb-3 me-4 ps-4" placeholder="Eğitim Hakkında">
+                                    <textarea rows="4" cols="50" type="text" name="education_write" class="input-field inputOval mb-3 me-4 ps-4" placeholder="Eğitim Hakkında"></textarea>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="submit-btn bg-danger inputOval" data-bs-dismiss="modal">Kapat</button>
@@ -139,7 +139,7 @@
                                             document.getElementById('form').submit();
                                         });
                                     </script>
-                                    <input type="text" name="education_write_seconds" id="educationWriteInput" class="input-field inputOval mb-3 me-4 ps-4" placeholder="Eğitim Hakkında">
+                                    <textarea rows="4" cols="50" type="text" name="education_write_seconds" id="educationWriteInput" class="input-field inputOval mb-3 me-4 ps-4" placeholder="Eğitim Hakkında"></textarea>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="submit-btn bg-danger inputOval" data-bs-dismiss="modal">Kapat</button>

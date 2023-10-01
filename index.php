@@ -33,7 +33,8 @@
       $result2 = $db->query("SELECT * FROM cardlesson");
       if ($result2->rowCount() > 0) {
         while ($row = $result2->fetch(PDO::FETCH_ASSOC)) { //fetch(PDO::FETCH_ASSOC) yöntemi, sonuç kümesinden bir satırı alır ve bu satırı bir dizi olarak döndürür.
-          $menuItem2 = array("lessonimg" => $row["cardLessonImg"], "title" => $row["cardLessonTitle"], "write" => $row["cardLessonWrite"]); //Döngü gövdesi kısmını özelleştirebilirsiniz. Bu bölümde, $row dizisinin herhangi bir özelliğini kullanabilirsiniz. Örneğin, $row['column_name'] şeklinde bir sütun adını kullanarak belirli bir sütundaki verilere erişebilirsiniz.
+          $truncatedText = substr($row["cardLessonWrite"], 0, 150);
+          $menuItem2 = array("lessonimg" => $row["cardLessonImg"], "title" => $row["cardLessonTitle"], "write" => $truncatedText, "lesson_id"=>$row["cardLessonID"], "educator_id"=>$row["educatorId"]); //Döngü gövdesi kısmını özelleştirebilirsiniz. Bu bölümde, $row dizisinin herhangi bir özelliğini kullanabilirsiniz. Örneğin, $row['column_name'] şeklinde bir sütun adını kullanarak belirli bir sütundaki verilere erişebilirsiniz.
           $menuItems2[] = $menuItem2; // Diziye her adımda bir öğe eklenir
         }
       } else {
@@ -42,9 +43,10 @@
       // alttaki her satırda "data-merge=1.5" özelliğini kullandım çünkü cardların own yapısındaki şekle oturması gerekiyor. kullandığım fotoğrafların yapısı own yapısına büyük geldi ve ben bu sorunu böyle çözdüm.
       foreach ($menuItems2 as $item) {
         echo '<div class="card" data-merge="1.5">';
-        echo '<a href="education_Detail.php"><img src="img/education_Img/' . $item["lessonimg"] . '" alt="logo" class="img-fluid"></a>';
+        echo '<img src="img/education_Img/' . $item["lessonimg"] . '" alt="logo" class="img-fluid">';
         echo '<h5 class="titleCard">' . $item["title"] . '</h5>';
         echo '<p class="cardp">' . $item["write"] . '</p>';
+        echo '<a href="education_Detail.php?lesson_id=' . $item["lesson_id"] . '&educator_id=' . $item["educator_id"] . '"><h5>Devamını Oku</h5></a>'; // Burada lesson_id veya benzeri bir benzersiz kimlik kullanmalısınız.
         echo '</div>';
       }
       ?>

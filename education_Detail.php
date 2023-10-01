@@ -1,22 +1,48 @@
 <?php
 include("inc/head.php");
 include("functions/routing.php");
+include("inc/database_Connection.php");
+
 ?>
 <div class="container">
   <div class="row" id="black_Row">
     <div class="col-md-8 text-center" id="mainContent">
       <h2>Yazılımcı Hakkında</h2>
-      <!--alt satır bir çizgi oluşturup sola kaydırıyor-->
-      <p>Ben kendimi bir yazlımcıdan ziyade geleceği inşa eden bir mesleğin ustası olarak görüyorum. Üniversite eğitimi mi Ege Üniversitesi Yazılım Mühendisi olarak tamamladım. Bu konuda 20'den fazla makale ve dergi yayınladım.Ben kendimi bir yazlımcıdan ziyade geleceği inşa eden bir mesleğin ustası olarak görüyorum. Üniversite eğitimi mi Ege Üniversitesi Yazılım Mühendisi olarak tamamladım. Bu konuda 20'den fazla makale ve dergi yayınladım.Ben kendimi bir yazlımcıdan ziyade geleceği inşa eden bir mesleğin ustası olarak görüyorum.</p>
+      <?php
+      // education_Detail.php
+      $lesson_id = $_GET["lesson_id"]; // Parametre alınır, güvenliğe dikkat edin.
+
+      // Veritabanından dersin tam metnini alın
+      $result = $db->query("SELECT cardLessonWrite FROM cardlesson WHERE cardLessonID = $lesson_id");
+      $row = $result->fetch(PDO::FETCH_ASSOC);
+
+      // Dersin tam metnini görüntüleyin
+      echo '<div class="lesson-content">';
+      echo $row["cardLessonWrite"];
+      echo '</div>';
+      ?>
     </div>
-    <div class="col-md-4 text-center">
-      <img src="img/educator_Img/ekip1.jpg" alt="logo" class="imgSize mt-5">
-      <h4 class="educatorName">Hakan Kavak</h4>
-      <p class="educatorp">Ege Üniversitesi Yazılım mühendisi ve yan dal donanım uzmanı.</p>
-      <a href="#"><i class="fa-brands fa-facebook social mb-4"></i></a>
-      <a href="https://www.linkedin.com/in/f%C4%B1rat-i%C5%9F%C4%B1ldak-608176250/"><i class="fa-brands fa-linkedin social  mb-4"></i></a>
-      <a href="#"><i class="fa-brands fa-github social  mb-4"></i></a>
-    </div>
+    <?php
+    // education_Detail.php
+    $educator_id = $_GET["educator_id"]; // Parametre alınır, güvenliğe dikkat edin.
+
+    // Veritabanından dersin tam metnini alın
+    $result2 = $db->query("SELECT * FROM educator_table WHERE educatorId = $educator_id");
+    $row2 = $result2->fetch(PDO::FETCH_ASSOC);
+
+    echo '<div class="col-md-3">';
+    echo '<img src="img/educator_Img/' . $row2["imgLink"] . '" class="img-fluid oval">';
+    echo '<h4 class="educatorName">' . $row2["nameSurname"] . '</h4>';
+    echo '<p class="educatorp">';
+    echo '' . $row2["aboutWrite"] . '';
+    echo '</p>';
+    echo ' <div class="egitmen-icon">';
+    echo ' <a href="' . $row2["faceLink"] . '"><i class="fa-brands fa-facebook social"></i></a>';
+    echo ' <a href="' . $row2["linkedinLink"] . '"><i class="fa-brands fa-linkedin social"></i></a>';
+    echo '<a href="' . $row2["githubLink"] . '"><i class="fa-brands fa-github social"></i></a>';
+    echo '</div>';
+    echo '</div>';
+    ?>
   </div>
 </div>
 <div class="container">
