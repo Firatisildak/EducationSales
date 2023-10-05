@@ -31,6 +31,9 @@ nav a:hover{
 .imgSize{
 	width: 50%;
 }
+.oval{
+	border-radius: 30%;
+}
 #mainContent{
 	color:white;
 	font-size: 15px;
@@ -110,9 +113,4 @@ nav a:hover{
 }
 .global_Color{
 	background-color: #F8F8F8;
-}
-@media(max-width: 992px){
-	#mainContent{
-		display: none;
-	}
 }

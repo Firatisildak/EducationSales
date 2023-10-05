@@ -6,8 +6,8 @@ include("inc/database_Connection.php");
 ?>
 <div class="container">
   <div class="row" id="black_Row">
-    <div class="col-md-8 text-center" id="mainContent">
-      <h2>Yazılımcı Hakkında</h2>
+    <div class="col-md-6 text-center mt-4" id="mainContent">
+      <h2>Eğitim Hakkında</h2>
       <?php
       // education_Detail.php
       $lesson_id = $_GET["lesson_id"]; // Parametre alınır, güvenliğe dikkat edin.
@@ -22,27 +22,27 @@ include("inc/database_Connection.php");
       echo '</div>';
       ?>
     </div>
-    <?php
-    // education_Detail.php
-    $educator_id = $_GET["educator_id"]; // Parametre alınır, güvenliğe dikkat edin.
+    <div class="col-md-6 mt-4 mb-4 text-center">
+      <?php
+      // education_Detail.php
+      $educator_id = $_GET["educator_id"]; // Parametre alınır, güvenliğe dikkat edin.
 
-    // Veritabanından dersin tam metnini alın
-    $result2 = $db->query("SELECT * FROM educator_table WHERE educatorId = $educator_id");
-    $row2 = $result2->fetch(PDO::FETCH_ASSOC);
+      // Veritabanından dersin tam metnini alın
+      $result2 = $db->query("SELECT * FROM educator_table WHERE educatorId = $educator_id");
+      $row2 = $result2->fetch(PDO::FETCH_ASSOC);
 
-    echo '<div class="col-md-3">';
-    echo '<img src="img/educator_Img/' . $row2["imgLink"] . '" class="img-fluid oval">';
-    echo '<h4 class="educatorName">' . $row2["nameSurname"] . '</h4>';
-    echo '<p class="educatorp">';
-    echo '' . $row2["aboutWrite"] . '';
-    echo '</p>';
-    echo ' <div class="egitmen-icon">';
-    echo ' <a href="' . $row2["faceLink"] . '"><i class="fa-brands fa-facebook social"></i></a>';
-    echo ' <a href="' . $row2["linkedinLink"] . '"><i class="fa-brands fa-linkedin social"></i></a>';
-    echo '<a href="' . $row2["githubLink"] . '"><i class="fa-brands fa-github social"></i></a>';
-    echo '</div>';
-    echo '</div>';
-    ?>
+      echo '<img src="img/educator_Img/' . $row2["imgLink"] . '" class="img-fluid oval">';
+      echo '<h4 class="educatorName">' . $row2["nameSurname"] . '</h4>';
+      echo '<p class="educatorp">';
+      echo '' . $row2["aboutWrite"] . '';
+      echo '</p>';
+      echo ' <div class="egitmen-icon">';
+      echo ' <a href="' . $row2["faceLink"] . '"><i class="fa-brands fa-facebook social"></i></a>';
+      echo ' <a href="' . $row2["linkedinLink"] . '"><i class="fa-brands fa-linkedin social"></i></a>';
+      echo '<a href="' . $row2["githubLink"] . '"><i class="fa-brands fa-github social"></i></a>';
+      echo '</div>';
+      ?>
+    </div>
   </div>
 </div>
 <div class="container">
