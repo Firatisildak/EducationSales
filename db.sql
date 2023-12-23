@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 08 Ağu 2023, 10:56:35
+-- Üretim Zamanı: 23 Ara 2023, 10:33:37
 -- Sunucu sürümü: 10.4.28-MariaDB
 -- PHP Sürümü: 8.2.4
 
@@ -69,21 +69,22 @@ CREATE TABLE `cardlesson` (
   `cardLessonID` int(11) NOT NULL,
   `cardLessonImg` varchar(500) NOT NULL,
   `cardLessonTitle` varchar(250) NOT NULL,
-  `cardLessonWrite` varchar(500) NOT NULL
+  `cardLessonWrite` varchar(500) NOT NULL,
+  `educatorId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Tablo döküm verisi `cardlesson`
 --
 
-INSERT INTO `cardlesson` (`cardLessonID`, `cardLessonImg`, `cardLessonTitle`, `cardLessonWrite`) VALUES
-(1, 'r1.jpg', 'HTML5 ve CSS3 Eğitimleri', 'sıfırdan ileri düzey eğitim serisi. Bu seri daha özgün bir insan olmanızı sağlarken yazılıma adım atmanızı sağlar.'),
-(2, 'r2.jpg', 'java', 'Adım Adım java öğrenmeye başlayacağınız örnekler ve projeler ile sizi iyi bir yazılımcı yaparken özelliklerinizi de arttırır.'),
-(3, 'r3.jpg', 'C# ve .Net', 'Güncel teknolojiler ve gelişim dünyasına adım atmanızı sağlayan güncel bir eğitim video serisi içerir.'),
-(4, 'r4.jpg', 'javaScript ve React', 'ileri düzey web tasarım bilgileri içeren bu kursu izleyebilmek için iyi bir tabanınızın olması öncelikli bir koşuldur.'),
-(5, 'r5.jpg', 'Mysql', 'Veritabanı işlemleri ve optimizasyonu nasıl gerçekleştirilir gibi konular içerir. Verimli içerikler paylaşılır.'),
-(6, 'r6.jpg', 'Temiz kod yazma', 'Bir yazılımcının yapması gereken her türlü  yapının düzenlenmesi ve okunaklı kod yazmanın püf noktaları.'),
-(7, 'r7.jpg', 'Adım Adım Frontend', 'Bir tasarımcını nerden ve nasıl başlayacağını antaırken aynı zamanda nasıl özgün tasarımlar çıkarabiliriz bunun yollarını öğretiyor.  ');
+INSERT INTO `cardlesson` (`cardLessonID`, `cardLessonImg`, `cardLessonTitle`, `cardLessonWrite`, `educatorId`) VALUES
+(1, 'r1.jpg', 'HTML5 ve CSS3', 'sıfırdan ileri düzey eğitim serisi. Bu seri daha özgün bir insan olmanızı sağlarken yazılıma adım atmanızı sağlar.Bu sayede kendinizi başka bir seviyede bulucaksınız.', 1),
+(2, 'r2.jpg', 'java Eğitimi', 'Adım Adım java öğrenmeye başlayacağınız örnekler ve projeler ile sizi iyi bir yazılımcı yaparken özelliklerinizi de arttırır. Sektördeki insanlardan nasıl yön bulabileceğiniz hakkında bilgi alabilirsin.', 3),
+(3, 'r3.jpg', 'C# ve .Net Framework', 'Güncel teknolojiler ve gelişim dünyasına adım atmanızı sağlayan güncel bir eğitim video serisi içerir.\r\nDoğru diller başlayıp doğru teknolojileri öğrenince iş bulamama olasığınız yoktur.', 2),
+(4, 'r4.jpg', 'javaScript ve React', 'ileri düzey web tasarım bilgileri içeren bu kursu izleyebilmek için iyi bir tabanınızın olması öncelikli bir koşuldur. Bu kurs sizi ort aseviyeden sektörde aranan ileri bir yaqzlımcı haline getirir.', 2),
+(5, 'r5.jpg', 'Mysql Eğitimi', 'Veritabanı işlemleri ve optimizasyonu nasıl gerçekleştirilir gibi konular içerir. Verimli içerikler paylaşılır. Verilerin yönetimi ve birçok yenilik bu sayede ve iş yükünü azaltmayı sağlar.', 3),
+(6, 'r6.jpg', 'Temiz kod yazma', 'Bir yazılımcının yapması gereken her türlü  yapının düzenlenmesi ve okunaklı kod yazmanın püf noktaları.\r\nBu kurs ile kendiniz bir yazılımcı gibi hissedip doğru kod yazmayı öğreniceksiniz.', 1),
+(7, 'r7.jpg', 'Adım Adım Frontend', 'Bir tasarımcını nerden ve nasıl başlayacağını antırken aynı zamanda nasıl özgün tasarımlar çıkarabiliriz bunun yollarını öğretiyor.  Bu tasarımlar ile kullanıcı dostu arayüzleri tasarlamk çok kolay olucak.', 3);
 
 -- --------------------------------------------------------
 
@@ -212,7 +213,8 @@ ALTER TABLE `adminlogin`
 -- Tablo için indeksler `cardlesson`
 --
 ALTER TABLE `cardlesson`
-  ADD PRIMARY KEY (`cardLessonID`);
+  ADD PRIMARY KEY (`cardLessonID`),
+  ADD KEY `educatorId` (`educatorId`);
 
 --
 -- Tablo için indeksler `educator_table`
@@ -289,6 +291,16 @@ ALTER TABLE `login`
 --
 ALTER TABLE `menutable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+
+--
+-- Dökümü yapılmış tablolar için kısıtlamalar
+--
+
+--
+-- Tablo kısıtlamaları `cardlesson`
+--
+ALTER TABLE `cardlesson`
+  ADD CONSTRAINT `cardlesson_ibfk_1` FOREIGN KEY (`educatorId`) REFERENCES `educator_table` (`educatorId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
