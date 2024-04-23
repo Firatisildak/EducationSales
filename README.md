@@ -69,4 +69,4 @@ Projenin çalıştırılması için aşağıdaki adımları izleyebilirsiniz:
 
 ## Notlar
 
-Bu proje, gönüllü staj yaptığınız yerde geliştirilmiştir ve acemice bir yapıya sahip olabilir. Ancak, projenin temel amacı PHP dilindeki yeteneklerinizi geliştirmek ve temel web geliştirme becerilerini öğrenmektir.
+Bu proje, gönüllü staj yaptığım yerde geliştirilmiştir ve acemice bir yapıya sahip olabilir. Ancak, projenin temel amacı PHP dilindeki yeteneklerimi geliştirmek ve temel web geliştirme becerilerini öğrenmektir.
